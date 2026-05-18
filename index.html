@@ -164,6 +164,179 @@
     .two-col { grid-template-columns: 1fr; }
     .col-no, .col-si { padding: 40px 24px; }
   }
+
+  /* ── MOCKUP SECTION ── */
+  .mockup-section {
+    background: var(--cream);
+    padding: 90px 24px;
+    overflow: hidden;
+  }
+  .mockup-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .mockup-section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .mockup-section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .mockup-section-header p {
+    font-size: 16px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Book page frame */
+  .book-page {
+    background: #fff;
+    border-radius: 2px 10px 10px 2px;
+    box-shadow:
+      -6px 6px 0 #ccc,
+      -12px 12px 0 #e0d8cc,
+      0 20px 60px rgba(0,0,0,0.18);
+    overflow: hidden;
+    position: relative;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .book-page:nth-child(2) { transform: rotate(1deg); }
+  .book-page:nth-child(3) { transform: rotate(-0.5deg); }
+  .book-page:hover {
+    transform: rotate(0deg) scale(1.02) !important;
+    box-shadow: -6px 6px 0 #ccc, -12px 12px 0 #e0d8cc, 0 32px 80px rgba(0,0,0,0.25);
+  }
+
+  .book-page-inner {
+    padding: 28px 24px 24px;
+    min-height: 280px;
+  }
+  .bp-brand {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .bp-chapter {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .bp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .bp-body {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #777;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .bp-rule {
+    width: 32px;
+    height: 1.5px;
+    background: var(--gold);
+    margin: 12px 0;
+  }
+  .bp-highlight {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 10px 12px;
+    margin: 12px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+  .bp-dark {
+    background: var(--dark);
+    padding: 28px 24px 24px;
+    min-height: 280px;
+  }
+  .bp-dark .bp-chapter { color: #555; }
+  .bp-dark .bp-title { color: #fff; }
+  .bp-dark .bp-body { color: #888; }
+  .bp-dark .bp-highlight {
+    background: #2a2420;
+    border-left-color: var(--gold);
+    color: #ddd;
+  }
+
+  /* Day timeline inside mockup */
+  .bp-timeline { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+  .bp-day { display: flex; align-items: center; gap: 8px; font-size: 9.5px; }
+  .bp-day-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .bp-day-label { font-weight: 600; color: var(--gold); min-width: 38px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 8px; }
+  .bp-day-text { color: #999; }
+
+  /* Step boxes inside mockup */
+  .bp-steps { display: flex; flex-direction: column; gap: 7px; margin: 10px 0; }
+  .bp-step { display: flex; align-items: flex-start; gap: 8px; }
+  .bp-step-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--gold); color: var(--dark);
+    font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .bp-step-text { font-size: 10px; color: #999; line-height: 1.5; }
+  .bp-step-title { font-weight: 600; color: #555; font-size: 10px; }
+
+  /* Page number footer inside mockup */
+  .bp-footer {
+    border-top: 1px solid #f0e8d8;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: center;
+    font-size: 8px;
+    color: #ccc;
+    letter-spacing: 1px;
+  }
+  .bp-dark .bp-footer { border-top-color: #2a2420; color: #444; }
+
+  /* Wide mockup spanning full grid */
+  .book-page-wide {
+    grid-column: 1 / -1;
+    transform: rotate(0deg) !important;
+  }
+  .book-page-wide .book-page-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 28px 32px 24px;
+  }
+
+  @media (max-width: 640px) {
+    .mockup-grid { grid-template-columns: 1fr; }
+    .book-page-wide .book-page-inner { grid-template-columns: 1fr; }
+    .book-page { transform: none !important; }
+    .book-page:hover { transform: scale(1.01) !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -176,7 +349,7 @@
   <h1 class="hero-title">Trabajás todo el mes.<br><span>¿Y siempre llegás justa?</span></h1>
   <p class="hero-sub">No compraste nada loco. No te fuiste de viaje. Fueron cosas normales. Y aun así, se fue.</p>
   <a href="https://payhip.com/b/bsODQ" class="btn-primary">QUIERO ENTENDER QUÉ PASA</a>
-  <p class="hero-price"><strong>AR$15.900</strong> · Descarga inmediata · PDF digital</p>
+  <p class="hero-price">Descarga inmediata · PDF digital</p>
 </section>
 
 <section class="section">
@@ -225,6 +398,102 @@
   </div>
 </div>
 
+
+<section class="mockup-section">
+  <div class="mockup-section-inner">
+    <div class="mockup-section-header">
+      <span class="label">Adentro del libro</span>
+      <h2>Lo que vas a encontrar</h2>
+      <p>Directo, visual, sin vueltas. Lo terminás en un fin de semana.</p>
+    </div>
+
+    <div class="mockup-grid">
+
+      <!-- Page 1: The week timeline -->
+      <div class="book-page">
+        <div class="book-page-inner">
+          <span class="bp-brand">Resolvelo</span>
+          <span class="bp-chapter">Capítulo 1 · Cobro… y desaparece</span>
+          <div class="bp-title">¿Te suena conocido?</div>
+          <div class="bp-timeline">
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Lunes</span><span class="bp-day-text">Delivery porque llegaste tarde.</span></div>
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Martes</span><span class="bp-day-text">Suscripciones que salen solas.</span></div>
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Miércoles</span><span class="bp-day-text">Farmacia. "Ya que estaba."</span></div>
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Jueves</span><span class="bp-day-text">A comer "algo tranquilo". Salió más.</span></div>
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Viernes</span><span class="bp-day-text">Ropa. Una semana larga. Te lo merecías.</span></div>
+            <div class="bp-day"><div class="bp-day-dot"></div><span class="bp-day-label">Finde</span><span class="bp-day-text">Más delivery. Un Uber. Cosas chicas.</span></div>
+          </div>
+          <div class="bp-highlight">El problema no es ninguno de esos gastos. Es que se juntan todos, en silencio.</div>
+        </div>
+        <div class="bp-footer">6</div>
+      </div>
+
+      <!-- Page 2: The system - dark -->
+      <div class="book-page">
+        <div class="bp-dark">
+          <span class="bp-brand">Resolvelo</span>
+          <span class="bp-chapter">Capítulo 4 · Organizarte sin obsesión</span>
+          <div class="bp-title" style="color:#fff">El sistema en 3 pasos.</div>
+          <div class="bp-rule"></div>
+          <div class="bp-steps">
+            <div class="bp-step">
+              <div class="bp-step-num">1</div>
+              <div><div class="bp-step-title" style="color:#ccc">Listá tus gastos fijos</div><div class="bp-step-text">Alquiler, servicios, cuotas. Ese número sale primero.</div></div>
+            </div>
+            <div class="bp-step">
+              <div class="bp-step-num">2</div>
+              <div><div class="bp-step-title" style="color:#ccc">Separá el colchón</div><div class="bp-step-text">Un 10% del resto. Tu red para imprevistos.</div></div>
+            </div>
+            <div class="bp-step">
+              <div class="bp-step-num">3</div>
+              <div><div class="bp-step-title" style="color:#ccc">Lo que queda es tuyo</div><div class="bp-step-text">Gastalo sin culpa. Cuando se acaba, se acaba.</div></div>
+            </div>
+          </div>
+          <div class="bp-highlight" style="margin-top:14px">Sueldo entra → separo fijos → separo colchón → lo que queda es mío.</div>
+        </div>
+        <div class="bp-footer" style="background:var(--dark); border-top:1px solid #2a2420; color:#444">13</div>
+      </div>
+
+      <!-- Page 3: Wide — invisible expenses -->
+      <div class="book-page book-page-wide">
+        <div class="book-page-inner">
+          <div>
+            <span class="bp-brand">Resolvelo</span>
+            <span class="bp-chapter">Capítulo 2 · Los gastos invisibles</span>
+            <div class="bp-title">Los que no aparecen en ninguna lista</div>
+            <div class="bp-body">Están diseñados para que no los veas. Se débitan solos, se acumulan en silencio, y al final del mes suman mucho más de lo que pensabas.</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <span style="color:var(--gold);font-size:12px;margin-top:1px">→</span>
+                <div><div style="font-size:10px;font-weight:600;color:#444;margin-bottom:2px">Suscripciones olvidadas</div><div style="font-size:9.5px;color:#999">Streaming, apps, seguros que se renuevan solos.</div></div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <span style="color:var(--gold);font-size:12px;margin-top:1px">→</span>
+                <div><div style="font-size:10px;font-weight:600;color:#444;margin-bottom:2px">Cuotas del pasado</div><div style="font-size:9.5px;color:#999">Gastos de hace 4 meses que te cobran hoy.</div></div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <span style="color:var(--gold);font-size:12px;margin-top:1px">→</span>
+                <div><div style="font-size:10px;font-weight:600;color:#444;margin-bottom:2px">Compras emocionales</div><div style="font-size:9.5px;color:#999">Cada semana se siente como una excepción.</div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="bp-rule" style="margin-bottom:16px"></div>
+            <div class="bp-highlight" style="margin-bottom:14px">"Nadie se funde por un café. El problema es no ver el patrón."</div>
+            <div class="bp-body" style="margin-top:8px">El cansancio también tiene un precio. Cuando llegás agotada no revisás las suscripciones, no comparás precios, no planificás. Y lo pagás todos los meses sin darte cuenta.</div>
+            <div style="margin-top:16px;padding:10px 12px;background:var(--dark);border-radius:4px">
+              <div style="font-size:9px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">La buena noticia</div>
+              <div style="font-size:10px;color:#aaa;line-height:1.6">Una vez que ves el patrón, ya no podés no verlo. Y eso ya cambia todo.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bp-footer">9</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="testimonios">
   <div class="testimonios-inner">
     <h2>Lo que dijeron después de leerlo</h2>
@@ -268,12 +537,11 @@
 <section class="cta-final">
   <h2>La culpa no paga<br><em>el resumen de la tarjeta.</em></h2>
   <p>Pero entender a dónde se fue la plata, sí ayuda.</p>
-  <div class="price-block">
-    <div class="price-main">AR$15.900</div>
+  
     <div class="price-note">Un solo pago · Tuyo para siempre · Descarga inmediata</div>
   </div>
   <a href="https://payhip.com/b/bsODQ" class="btn-cta">COMPRAR AHORA</a>
-  <p class="cta-sub">PDF digital · 538KB · Lo empezás hoy</p>
+  <p class="cta-sub">PDF digital · Lo empezás hoy</p>
 </section>
 
 <footer>© 2026 Resolvelo — resolvelo.com.ar</footer>
