@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por qué hace eso — Resolvelo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F2EB;
+    --dark: #151515;
+    --charcoal: #1E1E1E;
+    --warm-gray: #8A8480;
+    --gold: #C9A96E;
+    --gold-light: #E8D5A8;
+    --border: rgba(201,169,110,0.2);
+    --text-muted: #5A5550;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 32px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--dark));
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.04) 0%, transparent 50%);
+  }
+  .brand {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 18vw, 140px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s ease forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s ease forwards;
+  }
+  .hero-desc {
+    font-size: 17px;
+    color: rgba(247,242,235,0.65);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s ease forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s ease forwards;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .btn-primary:hover { color: var(--dark); }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .hero-cover {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    opacity: 0.15;
+    filter: blur(1px);
+    animation: fadeIn 1.5s 0.5s ease forwards;
+  }
+  .hero-cover img { width: 100%; display: block; }
+  @media (min-width: 768px) {
+    .hero { padding: 100px 80px; }
+    .hero-cover { width: 320px; opacity: 0.2; right: 60px; filter: none; }
+  }
+
+  /* EMOTION IMAGES */
+  .emotion-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    background: #000;
+  }
+  .emotion-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .emotion-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) saturate(0.7);
+    transition: transform 0.6s ease;
+    display: block;
+  }
+  .emotion-img:hover img { transform: scale(1.04); }
+  .emotion-img .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+  @media (min-width: 600px) {
+    .emotion-strip { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 900px) {
+    .emotion-strip { grid-template-columns: 1fr 1fr 1fr; }
+    .emotion-img { aspect-ratio: 3/4; }
+  }
+
+  /* DISRUPTIVE */
+  .disruptive {
+    background: var(--cream);
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .disruptive-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 9vw, 80px);
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .disruptive-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 400px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .btn-dark {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  .btn-dark:hover { background: #333; }
+
+  /* PHRASES */
+  .phrases { padding: 80px 32px; border-top: 1px solid var(--border); }
+  .phrase-item {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease;
+  }
+  .phrase-item.visible { opacity: 1; transform: translateY(0); }
+  .phrase-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .phrase-text em { font-style: italic; color: var(--gold-light); }
+  .phrase-note { font-size: 13px; color: var(--warm-gray); letter-spacing: 0.05em; }
+
+  /* TAL VEZ */
+  .talvez {
+    padding: 80px 32px;
+    background: var(--charcoal);
+    position: relative;
+  }
+  .talvez::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 32px; right: 32px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    display: block;
+  }
+  .talvez-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 7vw, 56px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 32px;
+  }
+  .talvez-body {
+    font-size: 16px;
+    color: rgba(247,242,235,0.6);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+  .talvez-body strong { color: var(--cream); font-weight: 400; }
+
+  /* CARDS */
+  .cards-section { padding: 80px 32px; }
+  .cards-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .card { background: var(--dark); padding: 32px; transition: background 0.3s ease; }
+  .card:hover { background: var(--charcoal); }
+  .card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: rgba(201,169,110,0.15);
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .card h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .card p { font-size: 14px; color: var(--warm-gray); line-height: 1.6; }
+  @media (min-width: 600px) { .cards-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* MOCKUP PAGES */
+  .mockup-section { padding: 80px 32px; background: var(--charcoal); }
+  .mockup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .mockup-sub {
+    font-size: 14px;
+    color: var(--warm-gray);
+    margin-bottom: 48px;
+  }
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .mockup-page {
+    background: #F5F0E8;
+    padding: 20px 16px;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+  }
+  .pg-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9A96E; font-family: 'Jost', sans-serif; }
+  .pg-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 2.5vw, 18px); font-weight: 600; color: #151515; line-height: 1.2; }
+  .pg-line { height: 1px; background: rgba(201,169,110,0.3); margin: 2px 0; }
+  .pg-text { font-size: clamp(7px, 1.3vw, 10px); color: #5A5550; line-height: 1.6; font-family: 'Jost', sans-serif; font-weight: 300; }
+  .pg-highlight { background: rgba(201,169,110,0.2); padding: 6px 8px; font-size: clamp(7px, 1.3vw, 10px); color: #1E1E1E; font-style: italic; font-family: 'Cormorant Garamond', serif; border-left: 2px solid #C9A96E; }
+  .pg-tag { display: inline-block; font-size: 8px; padding: 2px 6px; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+  .tag-green { background: #D4EDDA; color: #2D6A4F; }
+  .tag-yellow { background: #FFF3CD; color: #856404; }
+  .tag-red { background: #F8D7DA; color: #721C24; }
+  @media (min-width: 600px) { .mockup-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  /* INSIDE */
+  .inside { padding: 80px 32px; background: var(--charcoal); }
+  .inside-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 48px;
+  }
+  .inside-list { list-style: none; border-top: 1px solid var(--border); margin-bottom: 48px; }
+  .inside-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 15px;
+    color: rgba(247,242,235,0.7);
+  }
+  .inside-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* COVER SECTION */
+  .cover-section { padding: 60px 32px; display: flex; justify-content: center; align-items: center; }
+  .cover-wrap { position: relative; max-width: 260px; }
+  .cover-wrap img { width: 100%; display: block; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,169,110,0.1); }
+  .cover-glow { position: absolute; inset: -20px; background: radial-gradient(ellipse at center, rgba(201,169,110,0.1) 0%, transparent 70%); pointer-events: none; }
+
+  /* EDITORIAL */
+  .editorial { padding: 80px 32px; display: flex; flex-direction: column; gap: 48px; }
+  .editorial-phrase {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 6vw, 48px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--cream);
+    padding-left: 24px;
+    border-left: 1px solid var(--gold);
+  }
+
+  /* CHAT */
+  .chat-demo { padding: 60px 32px; background: var(--charcoal); }
+  .chat-bubble-wrap { display: flex; flex-direction: column; gap: 12px; max-width: 320px; margin: 0 auto; }
+  .bubble { padding: 12px 18px; border-radius: 18px; font-size: 14px; line-height: 1.5; max-width: 80%; }
+  .bubble.sent { background: rgba(201,169,110,0.15); color: var(--cream); align-self: flex-end; border-bottom-right-radius: 4px; }
+  .bubble.received { background: rgba(255,255,255,0.06); color: rgba(247,242,235,0.7); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .bubble.status { background: none; color: var(--warm-gray); font-size: 12px; align-self: flex-end; padding: 0 4px; }
+  .typing { background: rgba(255,255,255,0.06); align-self: flex-start; border-bottom-left-radius: 4px; padding: 14px 18px; display: flex; gap: 4px; align-items: center; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--warm-gray); animation: blink 1.4s infinite; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  .chat-label { text-align: center; font-size: 12px; color: var(--warm-gray); margin-top: 32px; letter-spacing: 0.05em; font-style: italic; }
+
+  /* TESTIMONIOS */
+  .testimonios { padding: 80px 32px; border-top: 1px solid var(--border); }
+  .testimonios-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--warm-gray); margin-bottom: 48px; }
+  .testimonio { padding: 32px 0; border-bottom: 1px solid var(--border); }
+  .testimonio-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 4vw, 24px); font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.5; margin-bottom: 16px; }
+  .testimonio-author { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
+
+  /* CTA FINAL */
+  .cta-final { padding: 120px 32px; text-align: center; position: relative; overflow: hidden; }
+  .cta-final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%); }
+  .cta-final-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 7vw, 56px); font-weight: 300; font-style: italic; line-height: 1.3; color: var(--cream); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-final .btn-primary { opacity: 1; animation: none; }
+
+  /* FOOTER */
+  footer { padding: 32px; text-align: center; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 0.2; } }
+  @keyframes blink { 0%, 60%, 100% { opacity: 0.3; transform: scale(1); } 30% { opacity: 1; transform: scale(1.2); } }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  @media (min-width: 768px) {
+    .hero { padding: 100px 80px; }
+    .phrases { padding: 100px 80px; }
+    .talvez { padding: 100px 80px; }
+    .cards-section { padding: 100px 80px; }
+    .inside { padding: 100px 80px; }
+    .editorial { padding: 100px 80px; }
+    .testimonios { padding: 100px 80px; }
+    .cta-final { padding: 140px 80px; }
+    .cards-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .disruptive { padding: 120px 80px; }
+    .mockup-section { padding: 100px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-cover">
+    <img src="portada_por_que_hace_esto.png" alt="Por qué hace eso">
+  </div>
+  <span class="brand">Resolvelo</span>
+  <h1 class="hero-title">Por qué<br><em>hace eso.</em></h1>
+  <p class="hero-sub">Mensajes, ghosting y señales mixtas</p>
+  <p class="hero-desc">Una guía para entender lo que realmente significan los silencios, las vueltas y las señales mezcladas.</p>
+  <a href="https://payhip.com/b/UqsXi" class="btn-primary">Dejar de interpretar todo</a>
+</section>
+
+<!-- EMOTION IMAGES -->
+<div class="emotion-strip">
+  <div class="emotion-img">
+    <img src="https://images.pexels.com/photos/1310532/pexels-photo-1310532.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chica mirando celular en la cama" loading="lazy">
+    <p class="caption">11:47 pm.<br>Visto. Sin respuesta.</p>
+  </div>
+  <div class="emotion-img">
+    <img src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mirando el celular de noche" loading="lazy">
+    <p class="caption">Ya sabés lo que significa.<br>Pero seguís esperando.</p>
+  </div>
+  <div class="emotion-img">
+    <img src="https://images.pexels.com/photos/5081971/pexels-photo-5081971.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Escribir y borrar mensaje" loading="lazy">
+    <p class="caption">Escribiste. Borraste.<br>No mandaste nada.</p>
+  </div>
+</div>
+
+<!-- DISRUPTIVE -->
+<section class="disruptive">
+  <p class="disruptive-text reveal">Sobrepensar<br>también cansa.</p>
+  <p class="disruptive-sub reveal">No necesitás más información de él. Necesitás leer mejor lo que ya está pasando.</p>
+  <a href="https://payhip.com/b/UqsXi" class="btn-dark reveal">Entender las señales</a>
+</section>
+
+<!-- CHAT ILLUSTRATION -->
+<section class="chat-demo">
+  <div class="chat-bubble-wrap">
+    <div class="bubble sent">Hola, ¿cómo estás?</div>
+    <div class="bubble status">Visto ✓✓ — 11:42 pm</div>
+    <div class="typing bubble">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="bubble received" style="opacity:0.4; font-style:italic;">...</div>
+  </div>
+  <p class="chat-label">Ya entendiste. Pero seguís esperando.</p>
+</section>
+
+<!-- PHRASES -->
+<section class="phrases">
+  <div class="phrase-item reveal">
+    <p class="phrase-text">Te escribió a las 11 de la noche.<br><em>A las 11 de la mañana, nada.</em></p>
+    <p class="phrase-note">Eso también es información.</p>
+  </div>
+  <div class="phrase-item reveal reveal-delay-1">
+    <p class="phrase-text">Vio tu historia.<br>No respondió tu mensaje.<br><em>Ambas cosas son información.</em></p>
+    <p class="phrase-note">No necesitás preguntarle nada.</p>
+  </div>
+  <div class="phrase-item reveal reveal-delay-2">
+    <p class="phrase-text">Desapareció dos semanas.<br><em>Volvió como si nada.</em></p>
+    <p class="phrase-note">No es un malentendido. Es un patrón.</p>
+  </div>
+  <div class="phrase-item reveal reveal-delay-3">
+    <p class="phrase-text">"Vemos."<br><em>Es la forma más educada de decir que no.</em></p>
+    <p class="phrase-note">Si quisiera, ya habría concretado.</p>
+  </div>
+</section>
+
+<!-- TAL VEZ -->
+<section class="talvez">
+  <span class="section-label reveal">Lo que nadie dice</span>
+  <h2 class="talvez-title reveal">Tal vez no estás<br>exagerando.</h2>
+  <p class="talvez-body reveal">El problema no es solo lo que hacen. Es la <strong>ambigüedad</strong>. La interpretación constante. El desgaste de llenar vacíos que ellos dejan adrede o sin darse cuenta.<br><br>Sobrepensar no es curiosidad. Es <strong>ansiedad disfrazada de análisis</strong>. Y esta guía existe para eso: para que puedas leer mejor lo que ya está pasando, sin necesitar más información de la que ya tenés.</p>
+</section>
+
+<!-- COVER -->
+<section class="cover-section">
+  <div class="cover-wrap reveal">
+    <div class="cover-glow"></div>
+    <img src="portada_por_que_hace_esto.png" alt="Por qué hace eso — Resolvelo">
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="cards-section">
+  <span class="section-label reveal">Qué vas a entender</span>
+  <h2 class="cards-title reveal">Sin teoría.<br>Solo escenas reales.</h2>
+  <div class="cards-grid">
+    <div class="card reveal">
+      <span class="card-num">01</span>
+      <h3>Por qué reaparece</h3>
+      <p>Lo que realmente significa cuando vuelve después de desaparecer.</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <span class="card-num">02</span>
+      <h3>Señales mixtas</h3>
+      <p>Cómo distinguir interés real de comodidad o aburrimiento.</p>
+    </div>
+    <div class="card reveal reveal-delay-2">
+      <span class="card-num">03</span>
+      <h3>Cómo leer silencios</h3>
+      <p>No todos los silencios significan lo mismo. Acá aprendés cuál es cuál.</p>
+    </div>
+    <div class="card reveal">
+      <span class="card-num">04</span>
+      <h3>Interés vs comodidad</h3>
+      <p>La diferencia entre alguien que quiere algo con vos y alguien que te usa de fondo.</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <span class="card-num">05</span>
+      <h3>Dejar de sobreanalizar</h3>
+      <p>Herramientas concretas para bajar la ansiedad interpretativa.</p>
+    </div>
+    <div class="card reveal reveal-delay-2">
+      <span class="card-num">06</span>
+      <h3>Cuándo ya es una respuesta</h3>
+      <p>Cuando la ambigüedad se sostiene mucho tiempo, ya te dijeron todo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOCKUP PAGES -->
+<section class="mockup-section">
+  <span class="section-label reveal">Dentro del ebook</span>
+  <h2 class="mockup-title reveal">Páginas que se<br>sienten reales.</h2>
+  <p class="mockup-sub reveal">8 escenas. Doble perspectiva. Traductor de señales.</p>
+  <div class="mockup-grid reveal">
+    <div class="mockup-page">
+      <span class="pg-label">Capítulo 2</span>
+      <div class="pg-line"></div>
+      <p class="pg-title">Desapareció y volvió</p>
+      <div class="pg-line"></div>
+      <p class="pg-text">Estuvo dos semanas sin escribir. Un día aparece con un "hola, ¿cómo estás?" como si nada. Vos no sabés si alegrarte o ignorarlo.</p>
+      <div class="pg-highlight">"Que vuelva no significa que cambió. Significa que volvió a necesitar algo."</div>
+    </div>
+    <div class="mockup-page">
+      <span class="pg-label">Capítulo 4</span>
+      <div class="pg-line"></div>
+      <p class="pg-title">Te busca de noche, no de día</p>
+      <div class="pg-line"></div>
+      <p class="pg-text">Los mensajes llegan después de las 10 pm. En el día, nada. Vos lo justificás: "está ocupado", "trabaja mucho".</p>
+      <div class="pg-highlight">"Hay horarios para cada cosa. Y vos ya sabés cuál sos en ese horario."</div>
+    </div>
+    <div class="mockup-page">
+      <span class="pg-label">Capítulo 6</span>
+      <div class="pg-line"></div>
+      <p class="pg-title">Primera cita perfecta, luego silencio</p>
+      <div class="pg-line"></div>
+      <p class="pg-text">Estuvo genial. Risas, química, conversación. Quedaron en verse. Pasaron diez días. Nada.</p>
+      <div class="pg-highlight">"No toda buena energía en persona se traduce en intención real."</div>
+    </div>
+    <div class="mockup-page">
+      <span class="pg-label">Traductor</span>
+      <div class="pg-line"></div>
+      <p class="pg-title">Señal verde / amarilla / roja</p>
+      <div class="pg-line"></div>
+      <p class="pg-text">Herramienta final para leer situaciones rápido.</p>
+      <div class="pg-line"></div>
+      <span class="pg-tag tag-green">Verde</span>
+      <p class="pg-text" style="margin-top:4px;">Iniciativa consistente, día y noche.</p>
+      <span class="pg-tag tag-yellow">Amarilla</span>
+      <p class="pg-text" style="margin-top:4px;">Aparece y desaparece. Observá el patrón.</p>
+      <span class="pg-tag tag-red">Roja</span>
+      <p class="pg-text" style="margin-top:4px;">Solo de noche. Solo cuando conviene.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside">
+  <span class="section-label reveal">Formato</span>
+  <h2 class="inside-title reveal">Una guía corta.<br>Sin moralina.<br>Sin estrategias.</h2>
+  <ul class="inside-list reveal">
+    <li>8 capítulos con escenas reales</li>
+    <li>Doble perspectiva por situación</li>
+    <li>Lectura rápida — en una tarde</li>
+    <li>Tono directo, sin drama</li>
+    <li>Traductor de señales al final</li>
+    <li>Señal verde / amarilla / roja</li>
+    <li>PDF descargable al instante</li>
+  </ul>
+</section>
+
+<!-- EDITORIAL PHRASES -->
+<section class="editorial">
+  <p class="editorial-phrase reveal">"La ambigüedad también es una respuesta."</p>
+  <p class="editorial-phrase reveal reveal-delay-1">"Que vuelva no significa que cambió."</p>
+  <p class="editorial-phrase reveal reveal-delay-2">"No todo silencio significa lo mismo."</p>
+  <p class="editorial-phrase reveal reveal-delay-3">"El problema no es no entenderlo. Es seguir interpretando cuando ya entendiste."</p>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios">
+  <h2 class="testimonios-title reveal">Lectoras</h2>
+  <div class="testimonio reveal">
+    <p class="testimonio-text">"Lo leí de una. Por fin alguien que no me dice qué hacer sino que me ayuda a ver lo que ya estaba pasando."</p>
+    <span class="testimonio-author">— V.M., 29 años</span>
+  </div>
+  <div class="testimonio reveal">
+    <p class="testimonio-text">"La sección del traductor de señales debería ser obligatoria."</p>
+    <span class="testimonio-author">— L.R., 34 años</span>
+  </div>
+  <div class="testimonio reveal">
+    <p class="testimonio-text">"No me motivó. Me destrancó. Que es exactamente lo que necesitaba."</p>
+    <span class="testimonio-author">— S.F., 26 años</span>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2 class="cta-final-title reveal">Tal vez no necesitás entenderlo a él.<br><em>Tal vez necesitás entender mejor la escena.</em></h2>
+  <a href="https://payhip.com/b/UqsXi" class="btn-primary reveal">Quiero entender qué pasa</a>
+</section>
+
+<footer>
+  <p>© 2026 Resolvelo — Todos los derechos reservados</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .phrase-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
