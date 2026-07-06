@@ -279,6 +279,29 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
     display:inline-block;
     animation:scrollpulse 2s ease-in-out infinite;
   }
+  .hero-cover-float{
+    position:absolute;
+    right:6%;
+    top:50%;
+    transform:translateY(-50%);
+    width:260px;
+    z-index:2;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
+  }
+  .hero-cover-float img{
+    width:100%;
+    display:block;
+    border-radius:4px;
+  }
+  @media(max-width:920px){
+    .hero-cover-float{
+      position:relative;
+      right:auto; top:auto; transform:none;
+      width:160px;
+      margin:28px auto 0;
+      display:block;
+    }
+  }
   @keyframes scrollpulse{0%,100%{opacity:.3;}50%{opacity:1;}}
 
   /* ---------- reveal on scroll ---------- */
@@ -819,6 +842,9 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
       </div>
     </div>
   </div>
+  <div class="hero-cover-float reveal">
+    <img src="tapa-nueva.jpg" alt="21K Sin La Pared - Tapa del libro">
+  </div>
   <div class="scroll-cue">SCROLL</div>
 </section>
 
@@ -925,23 +951,31 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
     </div>
     <div class="reveal reveal-delay-2">
       <span class="eyebrow">Qué incluye</span>
-      <h2 style="margin-top:16px;">Todo lo que necesitás, <span class="hl">nada de relleno</span></h2>
+      <h2 style="margin-top:16px;">El sistema completo, <span class="hl">no un solo PDF</span></h2>
       <div class="checklist">
         <div class="check-item">
           <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="check-text"><b>+300 páginas ilustradas</b><span>Con fotografía e infografías propias en cada capítulo, no clipart genérico.</span></div>
+          <div class="check-text"><b>El libro — +300 páginas ilustradas</b><span>6 tomos completos: mentalidad, base, plan de 12 semanas, cuerpo, combustible y el día D.</span></div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="check-text"><b>Plan completo de 12 semanas</b><span>Semana por semana, con las cuatro etapas: base, cuestas, pasadas y afinamiento.</span></div>
+          <div class="check-text"><b>Bonus 1 — Checklist del día de la carrera</b><span>Todo lo que tenés que tener listo, en un documento imprimible.</span></div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="check-text"><b>Fichas de ejercicios y movilidad</b><span>La fuerza mínima que sí funciona, con secuencias paso a paso.</span></div>
+          <div class="check-text"><b>Bonus 2 — Guía de nutrición para corredores</b><span>Qué comer antes, durante y después, sin dietas complicadas.</span></div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="check-text"><b>6 tomos completos en PDF</b><span>Mentalidad, base, plan, cuerpo, combustible y el día D — todo en un solo documento.</span></div>
+          <div class="check-text"><b>Bonus 3 — Prevención de lesiones y fuerza</b><span>Fichas de ejercicios y movilidad, la fuerza mínima que sí funciona.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 4 — Tabla de ritmos según tu objetivo</b><span>Ritmos de entrenamiento según el tiempo que querés lograr.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 5 — Planillas de entrenamiento en Excel</b><span>Registrá cada sesión de las 12 semanas y seguí tu progreso real.</span></div>
         </div>
         <div class="check-item">
           <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f3b13a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
