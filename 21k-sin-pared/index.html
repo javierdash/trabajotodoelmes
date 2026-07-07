@@ -284,7 +284,7 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
     right:6%;
     top:50%;
     transform:translateY(-50%);
-    width:260px;
+    width:480px;
     z-index:2;
     filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
   }
@@ -297,7 +297,8 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
     .hero-cover-float{
       position:relative;
       right:auto; top:auto; transform:none;
-      width:160px;
+      width:90%;
+      max-width:420px;
       margin:28px auto 0;
       display:block;
     }
@@ -515,13 +516,12 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
     justify-content:center;
   }
   .includes-cover img{
-    width:min(100%,320px);
+    width:min(100%,520px);
     border-radius:6px;
     box-shadow:0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(243,177,58,0.15);
-    transform:rotate(-3deg);
     transition:transform .5s ease;
   }
-  .includes-cover:hover img{transform:rotate(0deg) scale(1.02);}
+  .includes-cover:hover img{transform:scale(1.02);}
   .includes h2{font-size:clamp(32px,4.6vw,46px);margin-bottom:30px;}
   .includes h2 .hl{color:var(--gold);}
   .checklist{display:flex;flex-direction:column;gap:0;}
