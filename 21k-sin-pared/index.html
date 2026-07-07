@@ -282,14 +282,17 @@ src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
   .hero-cover-float{
     position:absolute;
     right:6%;
-    top:50%;
+    top:50svh;
     transform:translateY(-50%);
     width:480px;
+    max-height:80svh;
     z-index:2;
     filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
   }
   .hero-cover-float img{
     width:100%;
+    max-height:80svh;
+    object-fit:contain;
     display:block;
     border-radius:4px;
   }
