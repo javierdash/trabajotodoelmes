@@ -2,10 +2,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Repostería Rentable 360 — Resolvelo</title>
-
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -23,190 +19,1245 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2037865473491553&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repostería Rentable 360 — El sistema completo para vivir de tu pasión</title>
+<meta name="description" content="El sistema paso a paso para reposteras que quieren costear bien, cobrar lo que vale y vivir de su emprendimiento. Método Resolvelo, 12 tomos, +468 páginas ilustradas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: #FFF5F5;
-    color: #333;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+  :root{
+    --black:#2b1a1a;
+    --black-2:#321e1e;
+    --surface:#3d2626;
+    --surface-2:#4a2e2e;
+    --gold:#d4708a;
+    --gold-2:#e8a0b4;
+    --ember:#c9556d;
+    --ember-2:#b8435a;
+    --white:#fff5f5;
+    --grey:#bfa8a8;
+    --grey-dim:#8a7070;
+    --line:rgba(212,112,138,0.18);
+    --font-display:'Bebas Neue', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-serif:'Fraunces', serif;
   }
 
-  .wrap {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0 0 40px;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:24px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:0.96;
+    text-transform:uppercase;
+  }
+  .section{
+    position:relative;
+    padding:96px 0;
+    scroll-margin-top:84px;
+  }
+  .section-tight{padding:64px 0;}
+
+  /* ---------- progress thread (signature element) ---------- */
+  .km-thread{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:3px;
+    background:rgba(255,255,255,0.06);
+    z-index:999;
+  }
+  .km-thread-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--ember), var(--gold));
+    box-shadow:0 0 12px rgba(212,112,138,0.6);
+    transition:width 0.08s linear;
   }
 
-  .hero img {
-    width: 100%;
-    display: block;
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;
+    top:3px; left:0; right:0;
+    z-index:900;
+    padding:18px 0;
+    background:linear-gradient(to bottom, rgba(43,26,26,0.92), transparent);
+    backdrop-filter:blur(2px);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-logo{
+    font-family:var(--font-display);
+    font-size:22px;
+    letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  .nav-logo span{color:var(--gold);}
+  .nav-cta{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.04em;
+    padding:10px 20px;
+    border:1px solid var(--gold);
+    border-radius:2px;
+    color:var(--gold);
+    transition:all .25s ease;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--black);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    background-position:center 20%;
+    background-size:cover;
+    transform:scale(1.08);
+  }
+  .hero-scrim{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to top, rgba(43,26,26,1) 8%, rgba(43,26,26,0.55) 42%, rgba(43,26,26,0.15) 65%, rgba(43,26,26,0.55) 100%),
+      linear-gradient(to right, rgba(43,26,26,0.75) 0%, rgba(43,26,26,0.1) 55%);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:0 24px 64px;
+  }
+  .hero-kicker{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold-2);
+    background:rgba(212,112,138,0.1);
+    border:1px solid rgba(212,112,138,0.3);
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:2px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(54px, 14vw, 118px);
+    color:var(--white);
+    margin-bottom:6px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+    display:block;
+    background:linear-gradient(120deg, var(--gold), var(--ember) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero-sub{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(17px,3.2vw,23px);
+    color:var(--grey);
+    max-width:480px;
+    margin:18px 0 38px;
+  }
+  .btn{
+    font-family:var(--font-body);
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:18px 34px;
+    border-radius:3px;
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+    border:none;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg, var(--gold), var(--ember-2));
+    color:var(--black);
+    box-shadow:0 8px 28px -8px rgba(201,85,109,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px -10px rgba(201,85,109,0.7);}
+  .btn-primary svg{transition:transform .25s ease;}
+  .btn-primary:hover svg{transform:translateX(4px);}
+  .btn-ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.25);
+    color:var(--white);
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+  .hero-stats{
+    display:flex;
+    gap:34px;
+    margin-top:46px;
+    flex-wrap:wrap;
+  }
+  .hero-stat b{
+    font-family:var(--font-display);
+    font-size:30px;
+    color:var(--gold);
+    display:block;
+    line-height:1;
+  }
+  .hero-stat span{
+    font-size:12px;
+    color:var(--grey);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
   }
 
-  .content {
-    padding: 0 24px;
+  .scroll-cue{
+    position:absolute;
+    bottom:28px; right:28px;
+    z-index:2;
+    writing-mode:vertical-rl;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--grey);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .scroll-cue::after{
+    content:"";
+    width:1px;height:38px;
+    background:linear-gradient(to bottom, var(--gold), transparent);
+    display:inline-block;
+    animation:scrollpulse 2s ease-in-out infinite;
+  }
+  .hero-cover-float{
+    position:absolute;
+    right:6%;
+    top:50%;
+    margin-top:-240px;
+    width:480px;
+    z-index:2;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
+  }
+  .hero-cover-float img{
+    width:100%;
+    max-height:80svh;
+    object-fit:contain;
+    display:block;
+    border-radius:4px;
+  }
+  @media(max-width:920px){
+    .hero-cover-float{
+      position:relative;
+      right:auto; top:auto; margin-top:0;
+      width:90%;
+      max-width:420px;
+      margin:28px auto 0;
+      display:block;
+    }
+  }
+  @keyframes scrollpulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-delay-1{transition-delay:.1s;}
+  .reveal-delay-2{transition-delay:.2s;}
+  .reveal-delay-3{transition-delay:.3s;}
+  .reveal-delay-4{transition-delay:.4s;}
+  .reveal-delay-5{transition-delay:.5s;}
+
+  /* ---------- pain section ---------- */
+  .pain{
+    background:var(--black-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .pain-grid{
+    display:grid;
+    gap:2px;
+    background:rgba(255,255,255,0.05);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:48px;
+  }
+  @media(min-width:860px){.pain-grid{grid-template-columns:repeat(3,1fr);}}
+  .pain-card{
+    background:var(--black-2);
+    padding:38px 30px;
+  }
+  .pain-card .num{
+    font-family:var(--font-display);
+    font-size:46px;
+    color:var(--ember);
+    opacity:.55;
+    display:block;
+    margin-bottom:14px;
+  }
+  .pain-card p{
+    font-family:var(--font-serif);
+    font-size:19px;
+    line-height:1.45;
+    color:var(--white);
+  }
+  .pain-lede{
+    font-family:var(--font-display);
+    font-size:clamp(32px,5.6vw,52px);
+    line-height:1.04;
+    max-width:760px;
+  }
+  .pain-lede .hl{color:var(--gold);}
+
+  /* ---------- story section ---------- */
+  .story{
+    background:var(--black);
+    position:relative;
+  }
+  .story-grid{
+    display:grid;
+    gap:48px;
+    align-items:center;
+  }
+  @media(min-width:920px){.story-grid{grid-template-columns:0.95fr 1.05fr;gap:64px;}}
+  .story-img-wrap{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    aspect-ratio:3/2;
+    background:linear-gradient(135deg, var(--surface-2), var(--black-2) 65%, var(--ember-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .story-img-wrap .story-emoji{
+    font-size:clamp(72px,14vw,140px);
+    line-height:1;
+    filter:drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+  }
+  .story-img-wrap::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(43,26,26,0.5), transparent 40%);
+  }
+  .story-tag{
+    position:absolute;
+    bottom:18px;left:18px;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-2);
+    background:rgba(43,26,26,0.65);
+    border:1px solid rgba(212,112,138,0.3);
+    padding:8px 14px;
+    border-radius:2px;
+    backdrop-filter:blur(4px);
+  }
+  .story h2{
+    font-size:clamp(36px,5vw,54px);
+    margin-bottom:22px;
+  }
+  .story h2 .hl{color:var(--gold);}
+  .story p{
+    color:var(--grey);
+    font-size:16.5px;
+    margin-bottom:18px;
+    max-width:560px;
+  }
+  .story p strong{color:var(--white);font-weight:600;}
+  .story blockquote{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(20px,2.6vw,25px);
+    color:var(--white);
+    border-left:2px solid var(--gold);
+    padding-left:22px;
+    margin:30px 0;
+    line-height:1.5;
+  }
+  .story-sign{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:28px;
+  }
+  .story-sign .name-script{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .story-sign small{
+    display:block;
+    color:var(--grey-dim);
+    font-size:12px;
+    letter-spacing:0.04em;
   }
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
-    margin: 28px 0 14px;
-    line-height: 1.3;
+  /* ---------- method section ---------- */
+  .method{
+    background:linear-gradient(180deg, var(--black-2), var(--black) 85%);
+  }
+  .method-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .method-head h2{font-size:clamp(34px,5vw,52px);margin-top:14px;}
+  .method-head h2 .hl{color:var(--gold);}
+  .method-head p{color:var(--grey);font-size:16.5px;margin-top:16px;}
+
+  .tomes{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  @media(min-width:760px){.tomes{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1080px){.tomes{grid-template-columns:repeat(3,1fr);}}
+  .tome{
+    background:var(--surface);
+    padding:34px 28px;
+    position:relative;
+    transition:background .3s ease;
+  }
+  .tome:hover{background:var(--surface-2);}
+  .tome .tome-no{
+    font-family:var(--font-display);
+    font-size:54px;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--gold);
+    margin-bottom:18px;
+    display:block;
+  }
+  .tome h3{
+    font-family:var(--font-body);
+    font-weight:800;
+    text-transform:none;
+    font-size:17px;
+    letter-spacing:0.01em;
+    color:var(--white);
+    margin-bottom:10px;
+    line-height:1.3;
+  }
+  .tome p{
+    font-size:14.5px;
+    color:var(--grey);
+    line-height:1.55;
+  }
+  .tome .tome-caps{
+    margin-top:16px;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--grey-dim);
   }
 
-  .sub {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #555;
-    text-align: center;
-    margin-bottom: 26px;
+  /* ---------- includes ---------- */
+  .includes{
+    background:var(--black-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .includes-grid{
+    display:grid;
+    gap:56px;
+    align-items:center;
+  }
+  @media(min-width:920px){.includes-grid{grid-template-columns:0.85fr 1.15fr;}}
+  .includes-cover{
+    position:relative;
+    display:flex;
+    justify-content:center;
+  }
+  .includes-cover img{
+    width:min(100%,520px);
+    border-radius:6px;
+    box-shadow:0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(212,112,138,0.15);
+    transition:transform .5s ease;
+  }
+  .includes-cover:hover img{transform:scale(1.02);}
+  .includes h2{font-size:clamp(32px,4.6vw,46px);margin-bottom:30px;}
+  .includes h2 .hl{color:var(--gold);}
+  .checklist{display:flex;flex-direction:column;gap:0;}
+  .check-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .check-item:last-child{border-bottom:none;}
+  .check-icon{
+    flex:none;
+    width:26px;height:26px;
+    border-radius:50%;
+    background:rgba(212,112,138,0.12);
+    border:1px solid rgba(212,112,138,0.4);
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+  }
+  .check-icon svg{width:13px;height:13px;}
+  .check-text b{display:block;font-size:16px;color:var(--white);margin-bottom:3px;}
+  .check-text span{font-size:14px;color:var(--grey);}
+
+  /* ---------- for who ---------- */
+  .forwho{background:var(--black);}
+  .forwho-grid{
+    display:grid;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    margin-top:48px;
+  }
+  @media(min-width:780px){.forwho-grid{grid-template-columns:1fr 1fr;}}
+  .forwho-col{
+    padding:40px 34px;
+  }
+  .forwho-col.yes{background:linear-gradient(160deg, rgba(212,112,138,0.07), var(--surface));}
+  .forwho-col.no{background:var(--black-2);}
+  .forwho-col h3{
+    font-family:var(--font-body);
+    text-transform:none;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .forwho-col.yes h3{color:var(--gold);}
+  .forwho-col.no h3{color:var(--grey-dim);}
+  .forwho-col ul{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .forwho-col li{
+    display:flex;
+    gap:12px;
+    font-size:15.5px;
+    line-height:1.5;
+  }
+  .forwho-col.yes li{color:var(--white);}
+  .forwho-col.no li{color:var(--grey);}
+  .forwho-mark{flex:none;font-weight:800;}
+  .forwho-col.yes .forwho-mark{color:var(--gold);}
+  .forwho-col.no .forwho-mark{color:var(--ember-2);}
+
+  /* ---------- pricing ---------- */
+  .pricing{
+    background:radial-gradient(ellipse at 50% 0%, rgba(212,112,138,0.08), transparent 60%), var(--black-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .price-card{
+    max-width:480px;
+    margin:48px auto 0;
+    background:var(--surface);
+    border:1px solid rgba(212,112,138,0.25);
+    border-radius:8px;
+    padding:46px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .price-card::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg, var(--ember), var(--gold));
+  }
+  .price-badge{
+    display:inline-block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--black);
+    background:var(--gold);
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:24px;
+  }
+  .price-old{
+    font-family:var(--font-body);
+    font-size:20px;
+    color:var(--grey-dim);
+    text-decoration:line-through;
+    margin-bottom:4px;
+  }
+  .price-new{
+    font-family:var(--font-display);
+    font-size:clamp(56px,11vw,72px);
+    color:var(--white);
+    line-height:1;
+  }
+  .price-new sup{font-size:24px;color:var(--gold);}
+  .price-currency{font-size:15px;color:var(--grey);letter-spacing:0.05em;margin-top:6px;margin-bottom:30px;}
+  .price-card .btn-primary{width:100%;justify-content:center;font-size:16px;padding:19px;}
+  .price-note{
+    margin-top:18px;
+    font-size:12.5px;
+    color:var(--grey-dim);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+  .price-perks{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:36px;
+    font-size:12.5px;
+    color:var(--grey);
+    letter-spacing:0.03em;
+  }
+  .price-perks span{display:flex;align-items:center;gap:7px;}
+
+  /* ---------- testimonials ---------- */
+  .testi{background:var(--black);}
+  .testi-grid{
+    display:grid;
+    gap:24px;
+    margin-top:48px;
+  }
+  @media(min-width:760px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
+  .testi-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:30px 26px;
+  }
+  .testi-stars{color:var(--gold);font-size:14px;margin-bottom:16px;letter-spacing:2px;}
+  .testi-card p{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:16.5px;
+    color:var(--white);
+    line-height:1.55;
+    margin-bottom:22px;
+  }
+  .testi-who{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .testi-avatar{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), var(--ember-2));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);
+    font-size:15px;
+    color:var(--black);
+    flex:none;
+  }
+  .testi-who b{display:block;font-size:13.5px;color:var(--white);}
+  .testi-who span{font-size:12px;color:var(--grey-dim);}
+
+  /* ---------- final cta ---------- */
+  .final-cta{
+    position:relative;
+    overflow:hidden;
+    padding:120px 0;
+  }
+  .final-cta-bg{
+    position:absolute;inset:0;
+    background-size:cover;
+    background-position:center;
+    filter:brightness(0.4) saturate(1.1);
+  }
+  .final-cta-scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(43,26,26,0.65), rgba(43,26,26,0.92) 70%, var(--black) 100%);
+  }
+  .final-cta-inner{
+    position:relative;z-index:2;
+    text-align:center;
+    max-width:680px;
+    margin:0 auto;
+  }
+  .final-cta h2{
+    font-size:clamp(40px,7.5vw,76px);
+    line-height:0.98;
+  }
+  .final-cta h2 .hl{
+    color:var(--gold);
+    display:block;
+  }
+  .final-cta p{
+    font-family:var(--font-serif);
+    font-style:italic;
+    font-size:clamp(17px,2.6vw,21px);
+    color:var(--grey);
+    margin:22px 0 40px;
+  }
+  .final-cta .btn-primary{font-size:17px;padding:20px 42px;}
+  .final-cta-sub{
+    margin-top:22px;
+    font-size:13px;
+    color:var(--grey-dim);
   }
 
-  .price-box {
-    text-align: center;
-    margin: 20px 0 24px;
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--black);
+    border-top:1px solid var(--line);
+    padding:40px 0;
+    text-align:center;
+  }
+  footer .nav-logo{justify-content:center;display:flex;margin-bottom:10px;}
+  footer p{font-size:12.5px;color:var(--grey-dim);}
+
+  /* ---------- social proof widget ---------- */
+  .social-proof{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    z-index:800;
+    max-width:300px;
+    background:rgba(61,38,38,0.96);
+    border:1px solid rgba(212,112,138,0.25);
+    border-radius:8px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 16px 40px -12px rgba(0,0,0,0.6);
+    backdrop-filter:blur(6px);
+    transform:translateY(140%);
+    opacity:0;
+    transition:transform .55s cubic-bezier(.2,.9,.25,1), opacity .5s ease;
+  }
+  .social-proof.is-shown{transform:translateY(0);opacity:1;}
+  .sp-icon{
+    flex:none;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), var(--ember-2));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);
+    font-size:14px;
+    color:var(--black);
+  }
+  .sp-text{font-size:12.5px;line-height:1.4;}
+  .sp-text b{color:var(--white);font-weight:700;}
+  .sp-text span{display:block;color:var(--grey-dim);font-size:11px;margin-top:2px;}
+  .sp-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#39d35e;
+    display:inline-block;
+    margin-right:5px;
+    box-shadow:0 0 0 3px rgba(57,211,94,0.18);
   }
 
-  .price-old {
-    font-size: 1.1rem;
-    color: #999;
-    text-decoration: line-through;
-    display: block;
-    margin-bottom: 4px;
+  @media(max-width:600px){
+    .section{padding:72px 0;}
+    .hero-stats{gap:24px;}
+    .scroll-cue{display:none;}
+    .social-proof{left:14px;bottom:14px;max-width:260px;padding:12px 14px;}
+    .nav-logo{font-size:17px;}
+    .nav-cta{padding:9px 14px;font-size:11.5px;white-space:nowrap;}
   }
 
-  .price-new {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #D4708A;
-    display: block;
-  }
-
-  .price-note {
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 6px;
-  }
-
-  .btn {
-    display: block;
-    text-align: center;
-    background: #D4708A;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 18px 20px;
-    border-radius: 10px;
-    margin: 18px 0;
-    box-shadow: 0 6px 16px rgba(212, 112, 138, 0.35);
-    letter-spacing: 0.3px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .btn:active {
-    transform: scale(0.98);
-  }
-
-  .divider {
-    height: 1px;
-    background: #F0D9DF;
-    margin: 32px 0;
-  }
-
-  .list-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  ul.includes {
-    list-style: none;
-    margin-bottom: 8px;
-  }
-
-  ul.includes li {
-    font-size: 0.98rem;
-    color: #444;
-    padding: 10px 0;
-    border-bottom: 1px solid #F5E4E9;
-  }
-
-  ul.includes li:last-child {
-    border-bottom: none;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #999;
-    margin-top: 36px;
-    padding-top: 20px;
-  }
-
-  @media (min-width: 600px) {
-    h1 { font-size: 1.9rem; }
-    .price-new { font-size: 2.8rem; }
-    .btn { font-size: 1.15rem; padding: 20px 24px; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<div class="km-thread"><div class="km-thread-fill" id="kmFill"></div></div>
 
-  <div class="hero">
-    <img src="tapa.webp" alt="Repostería Rentable 360">
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">REPOSTERÍA <span>RENTABLE 360</span></div>
+    <a href="https://payhip.com/b/uo6I8" class="nav-cta">Quiero mi sistema</a>
   </div>
+</nav>
 
-  <div class="content">
-
-    <h1>El Sistema Completo para Vivir de Tu Repostería y Ganar lo que Merecés</h1>
-    <p class="sub">12 Tomos + 8 Herramientas Prácticas — Todo lo que necesitás para dejar de trabajar gratis</p>
-
-    <div class="price-box">
-      <span class="price-old">$39.900</span>
-      <span class="price-new">$19.900</span>
-      <span class="price-note">Acceso inmediato — Descarga digital</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg" style="background:linear-gradient(135deg, #3d2626 0%, #2b1a1a 50%, #4a2e2e 100%);"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="container">
+      <span class="hero-kicker">Método Resolvelo · Para emprendedoras de repostería</span>
+      <h1>REPOSTERÍA<em>Rentable 360</em></h1>
+      <p class="hero-sub">El sistema completo para vivir de tu pasión, costear bien, cobrar lo que vale y ganar lo que merecés. 12 tomos + 8 herramientas prácticas.</p>
+      <a href="https://payhip.com/b/uo6I8" class="btn btn-primary">
+        Quiero mi sistema completo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>12</b><span>Tomos</span></div>
+        <div class="hero-stat"><b>468+</b><span>Páginas</span></div>
+        <div class="hero-stat"><b>8</b><span>Bonus</span></div>
+        <div class="hero-stat"><b>∞</b><span>Acceso de por vida</span></div>
+      </div>
     </div>
-
-    <a class="btn" href="https://payhip.com/b/uo6I8" target="_blank" rel="noopener">QUIERO MI SISTEMA COMPLETO</a>
-
-    <div class="divider"></div>
-
-    <p class="list-title">Qué incluye</p>
-    <ul class="includes">
-      <li>✅ 12 Tomos: desde recetas base hasta escalar tu negocio</li>
-      <li>✅ Planilla de costeo automática</li>
-      <li>✅ Checklist de mise en place</li>
-      <li>✅ Guía de combinación de sabores</li>
-      <li>✅ Calendario de fechas comerciales</li>
-      <li>✅ Plantilla de presupuesto para clientes</li>
-      <li>✅ Guía de fotografía con celular</li>
-      <li>✅ Checklist de habilitación y bromatología</li>
-      <li>✅ Planilla de control de pedidos</li>
-    </ul>
-
-    <a class="btn" href="https://payhip.com/b/uo6I8" target="_blank" rel="noopener">QUIERO MI SISTEMA COMPLETO</a>
-
-    <footer>
-      © 2026 Resolvelo — Todos los derechos reservados
-    </footer>
-
   </div>
+  <div class="hero-cover-float reveal">
+    <img src="tapa.webp" alt="Repostería Rentable 360 - Tapa del libro">
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
 
+<!-- PAIN -->
+<section class="pain section" id="dolor">
+  <div class="container">
+    <span class="eyebrow reveal">El problema real</span>
+    <h2 class="pain-lede reveal reveal-delay-1" style="margin-top:18px;">Decorás tortas todo el día. Pero cuando sacás las cuentas, <span class="hl">trabajás gratis</span>.</h2>
+    <div class="pain-grid">
+      <div class="pain-card reveal reveal-delay-1">
+        <span class="num">01</span>
+        <p>Cobrás lo que cobran las demás, sin saber tus propios números. Y al final del mes la plata no aparece por ningún lado.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <span class="num">02</span>
+        <p>Buscás cursos de repostería y te enseñan recetas, pero nadie te enseña a costear, a cobrar bien, a organizar tu producción sin volverte loca.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <span class="num">03</span>
+        <p>Tenés miedo. No a cocinar — a subir los precios. A que te digan "es muy caro" y se vayan con otra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story section" id="historia">
+  <div class="container story-grid">
+    <div class="reveal">
+      <div class="story-img-wrap">
+        <span class="story-emoji">🎂</span>
+        <span class="story-tag">La realidad del emprendimiento</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <span class="eyebrow">Por qué existe este sistema</span>
+      <h2 style="margin-top:16px;">Creado para las que <span class="hl">ya cocinan increíble</span> pero no logran vivir de eso</h2>
+      <p>Miles de reposteras en Argentina tienen el mismo problema: <strong>saben cocinar pero no saben vender</strong>. Cobran barato porque no saben costear. Trabajan 14 horas porque no saben organizar la producción. Pierden clientes porque no saben responder consultas.</p>
+      <p>Este sistema nació de investigar qué hacen las reposteras que <strong>sí viven bien de esto</strong>. No las que más seguidores tienen — las que más ganan. Y resulta que todas hacen las mismas 12 cosas bien.</p>
+      <blockquote>"No necesitás ser la mejor decoradora de tu ciudad. Necesitás ser la que mejor maneja su negocio."</blockquote>
+      <div class="story-sign">
+        <div>
+          <span class="name-script">Resolvelo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method section" id="metodo">
+  <div class="container">
+    <div class="method-head reveal">
+      <span class="eyebrow">El sistema, tomo por tomo</span>
+      <h2>Doce tomos. <span class="hl">Un negocio real.</span></h2>
+      <p>Cada tomo construye sobre el anterior, en el mismo orden en que tu emprendimiento necesita profesionalizarse: primero la cabeza, después la cocina, después los números, después los clientes.</p>
+    </div>
+    <div class="tomes">
+      <div class="tome reveal reveal-delay-1">
+        <span class="tome-no">01</span>
+        <h3>Mentalidad y Bases del Negocio</h3>
+        <p>Por qué la mayoría trabaja mucho y gana poco, y la diferencia entre hobby y negocio real.</p>
+        <div class="tome-caps">Capítulos 1—5</div>
+      </div>
+      <div class="tome reveal reveal-delay-2">
+        <span class="tome-no">02</span>
+        <h3>Equipamiento e Insumos Inteligentes</h3>
+        <p>Qué necesitás de verdad, dónde comprar mayorista, y qué inversiones se pagan solas.</p>
+        <div class="tome-caps">Capítulos 6—10</div>
+      </div>
+      <div class="tome reveal reveal-delay-3">
+        <span class="tome-no">03</span>
+        <h3>Recetas Base Clásicas</h3>
+        <p>Bizcochuelos, masas, cremas, merengues y almíbares. Los fundamentales que todo pedido necesita.</p>
+        <div class="tome-caps">Capítulos 11—16</div>
+      </div>
+      <div class="tome reveal reveal-delay-1">
+        <span class="tome-no">04</span>
+        <h3>Recetas Avanzadas y Tendencias</h3>
+        <p>Drip cakes, naked cakes, cookies decoradas, macarons — lo que te diferencia y te permite cobrar más.</p>
+        <div class="tome-caps">Capítulos 17—22</div>
+      </div>
+      <div class="tome reveal reveal-delay-2">
+        <span class="tome-no">05</span>
+        <h3>Decoración y Presentación Visual</h3>
+        <p>Alisado perfecto, manga y boquillas, fondant, flores comestibles, lettering.</p>
+        <div class="tome-caps">Capítulos 23—28</div>
+      </div>
+      <div class="tome reveal reveal-delay-3">
+        <span class="tome-no">06</span>
+        <h3>Costeo y Precios</h3>
+        <p>El tomo más importante. Si no costeás bien, trabajás gratis. Método exacto paso a paso.</p>
+        <div class="tome-caps">Capítulos 29—35</div>
+      </div>
+      <div class="tome reveal reveal-delay-1">
+        <span class="tome-no">07</span>
+        <h3>Producción y Organización</h3>
+        <p>Producí más en menos tiempo. Agenda de pedidos, producción en lote, límite de capacidad.</p>
+        <div class="tome-caps">Capítulos 36—41</div>
+      </div>
+      <div class="tome reveal reveal-delay-2">
+        <span class="tome-no">08</span>
+        <h3>Marketing y Redes Sociales</h3>
+        <p>Instagram, fotos con celular, reels que generan pedidos, WhatsApp como herramienta de venta.</p>
+        <div class="tome-caps">Capítulos 42—47</div>
+      </div>
+      <div class="tome reveal reveal-delay-3">
+        <span class="tome-no">09</span>
+        <h3>Atención al Cliente y Ventas</h3>
+        <p>Cómo responder consultas, presupuestos claros, manejar el "es muy caro" y fidelizar.</p>
+        <div class="tome-caps">Capítulos 48—53</div>
+      </div>
+      <div class="tome reveal reveal-delay-1">
+        <span class="tome-no">10</span>
+        <h3>Packaging y Entrega</h3>
+        <p>Que llegue entero, que se vea profesional, que genere recompra.</p>
+        <div class="tome-caps">Capítulos 54—59</div>
+      </div>
+      <div class="tome reveal reveal-delay-2">
+        <span class="tome-no">11</span>
+        <h3>Fechas Comerciales y Temporadas</h3>
+        <p>Los picos de venta que te pueden hacer el año: Día de la Madre, Navidad, comuniones.</p>
+        <div class="tome-caps">Capítulos 60—65</div>
+      </div>
+      <div class="tome reveal reveal-delay-3">
+        <span class="tome-no">12</span>
+        <h3>Escalar el Negocio</h3>
+        <p>De la cocina de tu casa al siguiente nivel: ayudante, obrador, venta mayorista.</p>
+        <div class="tome-caps">Capítulos 66—71</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDES -->
+<section class="includes section" id="incluye">
+  <div class="container includes-grid">
+    <div class="includes-cover reveal">
+      <img src="tapa.webp" alt="Tapa del ebook Repostería Rentable 360">
+    </div>
+    <div class="reveal reveal-delay-2">
+      <span class="eyebrow">Qué incluye</span>
+      <h2 style="margin-top:16px;">El sistema completo, <span class="hl">no un simple recetario</span></h2>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>El libro — +468 páginas ilustradas</b><span>12 tomos completos: desde recetas base hasta escalar tu negocio.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 1 — Planilla de Costeo Automática</b><span>Cargás ingredientes y cantidades, te calcula costo y precio sugerido.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 2 — Checklist de Mise en Place</b><span>Todo listo antes de arrancar cada producción. No te olvidás de nada.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 3 — Guía de Combinación de Sabores</b><span>Qué va con qué, por categoría: frutas, chocolates, frutos secos, especias.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 4 — Calendario de Fechas Comerciales</b><span>Mes por mes, con semanas de anticipación recomendadas.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 5 — Plantilla de Presupuesto para Clientes</b><span>Lista para llenar y mandar por WhatsApp.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 6 — Guía de Fotografía con Celular</b><span>Configuración, luz, fondos, edición básica en apps gratis.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 7 — Checklist de Habilitación y Bromatología</b><span>Requisitos resumidos, qué tramitar, en qué orden.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Bonus 8 — Planilla de Control de Pedidos</b><span>Para no perder ningún encargo ni fecha.</span></div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4708a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="check-text"><b>Acceso de por vida</b><span>Lo comprás una vez, lo tenés para siempre. Sin suscripciones.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho section" id="para-quien">
+  <div class="container">
+    <span class="eyebrow reveal">Antes de comprar</span>
+    <h2 class="reveal reveal-delay-1" style="margin-top:16px;font-size:clamp(32px,5vw,48px);max-width:680px;">¿Es esto para vos?</h2>
+    <div class="forwho-grid">
+      <div class="forwho-col yes reveal reveal-delay-2">
+        <h3>Es para vos si</h3>
+        <ul>
+          <li><span class="forwho-mark">✓</span> Ya cocinás rico y querés convertir eso en un negocio rentable.</li>
+          <li><span class="forwho-mark">✓</span> Vendés pero no te dan los números — trabajás mucho y ganás poco.</li>
+          <li><span class="forwho-mark">✓</span> Querés un sistema paso a paso, no tips sueltos de Instagram.</li>
+          <li><span class="forwho-mark">✓</span> Necesitás aprender a costear, cobrar y organizarte de verdad.</li>
+          <li><span class="forwho-mark">✓</span> Soñás con vivir de tu repostería sin quemarte en el intento.</li>
+        </ul>
+      </div>
+      <div class="forwho-col no reveal reveal-delay-3">
+        <h3>No es para vos si</h3>
+        <ul>
+          <li><span class="forwho-mark">✕</span> Nunca cocinaste y querés empezar desde cero — este sistema asume que ya sabés lo básico.</li>
+          <li><span class="forwho-mark">✕</span> Buscás solo recetas sin interesarte el lado negocio.</li>
+          <li><span class="forwho-mark">✕</span> Esperás resultados mágicos sin aplicar lo que aprendés.</li>
+          <li><span class="forwho-mark">✕</span> No tenés intención de vender — esto es para emprendedoras, no hobby.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing section" id="precio">
+  <div class="container">
+    <span class="eyebrow reveal">Oferta de lanzamiento</span>
+    <h2 class="reveal reveal-delay-1" style="margin-top:16px;font-size:clamp(32px,5vw,48px);">Tu negocio de repostería empieza acá</h2>
+    <div class="price-card reveal reveal-delay-2">
+      <span class="price-badge">Precio de lanzamiento</span>
+      <div class="price-old">$39.900 ARS</div>
+      <div class="price-new">$19.900<sup>ARS</sup></div>
+      <div class="price-currency">Pago único · Acceso inmediato</div>
+      <a href="https://payhip.com/b/uo6I8" class="btn btn-primary" id="ctaPrecio">
+        Quiero mi sistema completo ahora
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="price-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1.5" stroke="#bfa8a8" stroke-width="1.6"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#bfa8a8" stroke-width="1.6"/></svg>
+        Pago 100% seguro
+      </div>
+    </div>
+    <div class="price-perks reveal reveal-delay-3">
+      <span>📥 Descarga inmediata</span>
+      <span>♾️ Acceso de por vida</span>
+      <span>📱 Funciona en cualquier dispositivo</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi section" id="testimonios">
+  <div class="container">
+    <span class="eyebrow reveal">Lo que dicen las que ya lo aplican</span>
+    <h2 class="reveal reveal-delay-1" style="margin-top:16px;font-size:clamp(32px,5vw,46px);">Resultados, no promesas</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p>"El tomo de costeo me cambió la cabeza. Descubrí que estaba regalando las tortas. Subí los precios un 40% y no perdí ni una clienta."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">V.</div>
+          <div><b>V. M.</b><span>Repostera, 34 años</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Antes tardaba una hora en responder cada consulta por WhatsApp. Con la plantilla de presupuesto cierro pedidos en 5 minutos."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">C.</div>
+          <div><b>C. L.</b><span>Emprendedora, 29 años</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Organicé mi producción con el sistema del tomo 7 y pasé de 6 tortas por semana a 12 sin trabajar más horas. La diferencia es el método."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">A.</div>
+          <div><b>A. R.</b><span>Repostera, 41 años</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta-final">
+  <div class="final-cta-bg" style="background:linear-gradient(135deg, #4a2e2e, #2b1a1a);"></div>
+  <div class="final-cta-scrim"></div>
+  <div class="container final-cta-inner">
+    <h2 class="reveal">Tu repostería<span class="hl">merece ser un negocio real</span></h2>
+    <p class="reveal reveal-delay-1">12 tomos, 8 herramientas, y todo lo que necesitás para dejar de trabajar gratis y empezar a ganar lo que merecés.</p>
+    <a href="https://payhip.com/b/uo6I8" class="btn btn-primary reveal reveal-delay-2">
+      Quiero mi sistema completo ahora
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="final-cta-sub reveal reveal-delay-3">Repostería Rentable 360 · Método Resolvelo · Pago único, acceso de por vida</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="nav-logo">REPOSTERÍA <span>RENTABLE 360</span></div>
+    <p>© 2026 Resolvelo. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- SOCIAL PROOF WIDGET -->
+<div class="social-proof" id="socialProof">
+  <div class="sp-icon" id="spIcon">V</div>
+  <div class="sp-text">
+    <b id="spName">Valentina</b> <span id="spAction">acaba de comprar el sistema</span>
+    <span><span class="sp-dot"></span><span id="spTime">hace 2 min</span></span>
+  </div>
 </div>
+
+<script>
+  // ---- km thread progress ----
+  const kmFill = document.getElementById('kmFill');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled/max)*100 : 0;
+    kmFill.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // ---- hero parallax subtle ----
+  const heroBg = document.getElementById('heroBg');
+  document.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroBg.style.transform = `scale(1.08) translateY(${y*0.12}px)`;
+    }
+  }, {passive:true});
+
+  // ---- reveal on scroll ----
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---- social proof widget ----
+  const names = [
+    { name: "Valentina", time: "hace 2 min" },
+    { name: "Camila", time: "hace 5 min" },
+    { name: "Florencia", time: "hace 1 min" },
+    { name: "Agustina", time: "hace 8 min" },
+    { name: "Milagros", time: "hace 3 min" },
+    { name: "Rocío", time: "hace 6 min" },
+    { name: "Carolina", time: "hace 4 min" },
+    { name: "Luciana", time: "hace 9 min" },
+    { name: "Martina", time: "hace 2 min" },
+    { name: "Soledad", time: "hace 7 min" },
+  ];
+  const actions = [
+    "acaba de comprar el sistema",
+    "se sumó al método Resolvelo",
+    "empezó a profesionalizar su negocio",
+  ];
+
+  const spEl = document.getElementById('socialProof');
+  const spIcon = document.getElementById('spIcon');
+  const spName = document.getElementById('spName');
+  const spAction = document.getElementById('spAction');
+  const spTime = document.getElementById('spTime');
+
+  let spIndex = 0;
+  function shuffle(arr){
+    const a = arr.slice();
+    for (let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+  let order = shuffle(names);
+
+  function showNotification(){
+    if (spIndex >= order.length){ order = shuffle(names); spIndex = 0; }
+    const item = order[spIndex++];
+    const action = actions[Math.floor(Math.random()*actions.length)];
+    spIcon.textContent = item.name.charAt(0);
+    spName.textContent = item.name;
+    spAction.textContent = action;
+    spTime.textContent = item.time;
+    spEl.classList.add('is-shown');
+
+    setTimeout(() => {
+      spEl.classList.remove('is-shown');
+    }, 5200);
+  }
+
+  // primera aparición a los 3s, luego cada 8-10s
+  setTimeout(() => {
+    showNotification();
+    setInterval(() => {
+      showNotification();
+    }, 8000 + Math.random()*2000);
+  }, 3000);
+</script>
 
 </body>
 </html>
